@@ -1,6 +1,5 @@
 import 'package:emergency_layout/widget/animated_scroll_view.dart';
 import 'package:emergency_layout/widget/big_list_item.dart';
-import 'package:emergency_layout/widget/fade_in_left.dart';
 import 'package:emergency_layout/widget/rounded_right_header.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
