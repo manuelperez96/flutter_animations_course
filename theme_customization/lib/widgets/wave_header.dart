@@ -10,12 +10,16 @@ class WaveHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
     return SizedBox(
       height: double.infinity,
       width: double.infinity,
       child: CustomPaint(
         painter: WavesPainter(
           waves: _waves,
+          starColor: colors.primary,
+          endColor: colors.secondary,
         ),
       ),
     );
@@ -25,17 +29,24 @@ class WaveHeader extends StatelessWidget {
 class WavesPainter extends CustomPainter {
   WavesPainter({
     required int waves,
-  }) : _waves = waves;
+    required Color starColor,
+    required Color endColor,
+  })  : _endColor = endColor,
+        _starColor = starColor,
+        _waves = waves;
 
   final int _waves;
+  final Color _starColor;
+  final Color _endColor;
 
   @override
   void paint(Canvas canvas, Size size) {
-    const gradient = LinearGradient(colors: <Color>[
-      Colors.pink,
-      Colors.purple,
-      Colors.indigo,
-    ]);
+    final gradient = LinearGradient(
+      colors: <Color>[
+        _starColor,
+        _endColor,
+      ],
+    );
 
     final rect = Rect.fromCircle(
       center: Offset(size.width / 2, 0),

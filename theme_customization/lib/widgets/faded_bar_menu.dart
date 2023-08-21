@@ -19,12 +19,15 @@ class FadedBarMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+
     return AnimatedOpacity(
       duration: const Duration(milliseconds: 100),
       opacity: _isVisible ? 1 : 0,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: colors.background,
           borderRadius: BorderRadius.circular(20),
           boxShadow: const [
             BoxShadow(
